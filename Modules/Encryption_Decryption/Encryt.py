@@ -33,7 +33,7 @@ if st1=="Level 1":
                     if x<97:
                         x=123-(97-x)
                 result=result+chr(x)
-        print("The encrypted data is: ",result)    
+        print("The decrypted data is: ",result)    
 elif st1=="Level 2":
     if st=="Encrypt":
         text=input("Enter the data to be encrypted: ")
@@ -74,5 +74,5 @@ elif st1=="Level 2":
                 result=result+tem
             else:
                 result=result+char                        
-        print("The encrypted data is: ",result)       
+        print("The decrypted data is: ",result)       
           
