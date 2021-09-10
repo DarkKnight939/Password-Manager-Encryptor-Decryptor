@@ -3,7 +3,8 @@ from Modules.clear_scr import clr_scr
 
 
 def sign_up():
-    print("Sign up for an account")
+    clr_scr()
+    print("**Sign up for an account**")
     username = input("Username: ")
     while not username:
         print("Username cannot be blank")
@@ -20,5 +21,5 @@ def sign_up():
     __main__.users[username] = password
     __main__.current_user = username
     clr_scr()
-    print(f"\nAccount created for {username}")
+    print(f"Account created for {username}")
     return True
