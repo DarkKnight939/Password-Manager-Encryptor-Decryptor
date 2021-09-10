@@ -1,2 +1,0 @@
-# Add __pychacher__ to gitignore
-echo "__pycache__" >> .gitignore
