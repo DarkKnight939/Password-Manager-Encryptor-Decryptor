@@ -8,7 +8,7 @@ if st1=="Level 1":
         sh=int(input("Enter the number by which it is shifted: "))
         for i in range(len(text)):
             char = text[i]
-            if char.isalnum():
+            if char.isalpha():
                 x=ord(char)+sh
                 if char.isupper():
                     if x>90:
@@ -24,7 +24,7 @@ if st1=="Level 1":
         sh=int(input("Enter the number by which it was shifted: "))
         for i in range(len(text)):
             char = text[i]
-            if char.isalnum():
+            if char.isalpha():
                 x=ord(char)-sh
                 if char.isupper():
                     if x<65:
@@ -42,7 +42,7 @@ elif st1=="Level 2":
         l,j=len(key),0
         for i in range(len(text)):
             char = text[i]
-            if char.isalnum():
+            if char.isalpha():
                 sh=key[j]
                 x=(ord(char)-65)+(ord(sh)-65)
                 j+=1
@@ -62,7 +62,7 @@ elif st1=="Level 2":
         l,j=len(key),0
         for i in range(len(text)):
             char = text[i]
-            if char.isalnum():
+            if char.isalpha():
                 sh=key[j]
                 x=(ord(char)-65)-(ord(sh)-65)
                 j+=1
