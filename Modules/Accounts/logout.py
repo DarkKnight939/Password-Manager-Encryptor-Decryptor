@@ -2,6 +2,6 @@ import __main__
 
 
 def logout():
-    """Log the user out of their account."""
-    __main__.current_account = None
+    __main__.current_user = None
     print("You have been logged out.")
+    return True

@@ -5,13 +5,25 @@ import __main__
 def view_passwords():
     clr_scr()
     print("Welcome to the Password Viewer 👀\n")
-    if __main__.current_user not in __main__.pasword_manager_dict.keys():
-        print("You have no passwords saved.")
+    if not len(__main__.password_manager_dict[__main__.current_user].keys()):
+        print("No passwords saved")
     else:
-        print("Your passwords are:")
-        passwod_keys = list(__main__.pasword_manager_dict.keys())
-        passwod_values = list(__main__.pasword_manager_dict.values())
-        for i in range(len(passwod_keys)):
-            if passwod_keys[i] == __main__.current_user:
-                print(f"{passwod_values[i][0]}: {passwod_values[i][1]}")
+        print("What do you want to view?\n1. All passwords\n2. Password of a site")
+        choice = input("Your choice: ")
+        while choice not in ['1', '2']:
+            choice = input("Invalid input\nYour choice: ")
+        clr_scr()
+        if choice == "1":
+            print("\nSaved passwords:")
+            print("Site | Password")
+            for key, value in __main__.password_manager_dict[__main__.current_user].items():
+                print(key, "|", value)
+        elif choice == "2":
+            site = input("Enter the site: ")
+            if site in __main__.password_manager_dict[__main__.current_user].keys():
+                print(
+                    "Your password for", site, "is", __main__.password_manager_dict[__main__.current_user][site])
+            else:
+                print("No password for this site")
+
     return True

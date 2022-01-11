@@ -3,23 +3,28 @@ from Modules.clear_scr import clr_scr
 
 
 def sign_up():
-    clr_scr()
-    print("**Sign up for an account**")
+
+    print("Sign up for an account📋")
+    # Inputing username and password
     username = input("Username: ")
     while not username:
-        print("Username cannot be blank")
-        username = input("Username: ")
+        username = input("Username cannot be blank\nUsername: ")
         if username in __main__.users.key():
-            print("Username already exists", "Please use a ")
-            username = input("Username: ")
-    password = input("Enter the password: ")
-    confirm_password = input("Confirm password: ")
-    while confirm_password != password or not password:
-        print("Passwords do not match/ Password cannot be empty. Please try again.")
-        password = input("Enter the password: ")
+            username = input(
+                "Username already exists\nPlease enter a different username\nUsername: ")
+    password, confirm_password = "-1", "0"
+    while password != confirm_password:
+        password = input("Enter the master password: ")
+        while not password:
+            password = input("Password cannot be blank\nEnter the password: ")
         confirm_password = input("Confirm password: ")
+        if confirm_password != password:
+            print("Passwords do not match. Please try again.")
+    # Adding username and password to the dictionary
     __main__.users[username] = password
     __main__.current_user = username
+    # Creating password vault for new user
+    __main__.password_manager_dict[username] = dict()
     clr_scr()
     print(f"Account created for {username}")
     return True

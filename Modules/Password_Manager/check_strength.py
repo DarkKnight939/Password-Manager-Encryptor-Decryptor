@@ -5,6 +5,7 @@ def check_strength():
     clr_scr()
     print("Welcome to Password Strength Checker 💪\n")
     password = input("Enter your password: ")
+    clr_scr()
     if len(password) < 8:
         print("Your password is too short")
     elif password.isalpha():
@@ -24,5 +25,5 @@ def check_strength():
         print("Your password is strong",
               "Try including mixture of upper and lower case alphabets to make your password stronger", sep="\n")
     else:
-        print("Your password is very strong", sep="\n")
+        print("Your password is very strong")
     return True
