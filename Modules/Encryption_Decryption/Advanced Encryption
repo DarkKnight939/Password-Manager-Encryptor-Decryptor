@@ -1,0 +1,43 @@
+ed=str(input("Press 1 to encrypt, 2 to decrypt:"))
+encoded=""
+encrypted=""
+if ed=="1":
+    text=str(input("Enter data to be encrypted:"))
+    for i in text:
+        if i.isalpha()==True: 
+            caps=i.capitalize()
+            x=(ord(caps))+(text.index(i))+1
+            if x>90:
+                x=x-26
+            a=x-64
+            if x>64 and x<78:
+                el=chr((2*a)+64)
+                encoded=encoded+el
+                pass
+            elif x>77 and x<91:
+                el=chr(((a-13)*2)-1+64)
+                encoded+=el
+                pass
+        elif i.isdigit()==True:
+            el=int(i)+(text.index(i))+1
+            while el>9:
+                el=el-9
+            encoded+=str(el)
+        else:
+            encoded+=i
+    key_h=str(input("Enter a 6-letter key for security purpose:\n(For future reference, note as horizontal key)\n")).upper()
+    key_v=str(input("Enter a 6-letter key for security purpose:\n(For future reference, note as vertical key)\n")).upper()
+    grid=[['A','B','C','D','E','F'],['G','H','I','J','K','L'],['M','N','O','P','Q','R'],['S','T','U','V','W','X'],['Y','Z','0','1','2','3'],['4','5','6','7','8','9']]
+    for char in encoded:
+        i=encoded.index(char)
+        for j in range(len(grid)):
+            a=list(grid[j])
+            if char in a:
+                vertical=a.index(char)
+                horizontal=j
+                encrypted+=key_h[vertical]+key_v[horizontal]+""
+        if char.isspace()==True:
+            encrypted+=" "
+        elif char.isalnum()==False:
+            encrypted+=char
+    print(encrypted)
