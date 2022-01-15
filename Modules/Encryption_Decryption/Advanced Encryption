@@ -25,8 +25,8 @@ if ed=="1":
             encoded+=str(el)
         else:
             encoded+=i
-    key_h=str(input("Enter a 6-letter key for security purpose:\n(For future reference, note as horizontal key)\n")).upper()
-    key_v=str(input("Enter a 6-letter key for security purpose:\n(For future reference, note as vertical key)\n")).upper()
+    key_h=str(input("Enter a 6-character key for security purpose:\n(For future reference, note as horizontal key)\n")).upper()
+    key_v=str(input("Enter a 6-character key for security purpose:\n(For future reference, note as vertical key)\n")).upper()
     grid=[['A','B','C','D','E','F'],['G','H','I','J','K','L'],['M','N','O','P','Q','R'],['S','T','U','V','W','X'],['Y','Z','0','1','2','3'],['4','5','6','7','8','9']]
     for char in encoded:
         i=encoded.index(char)
