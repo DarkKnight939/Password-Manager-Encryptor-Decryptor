@@ -9,7 +9,7 @@ def sign_up():
     username = input("Username: ")
     while not username:
         username = input("Username cannot be blank\nUsername: ")
-        if username in __main__.users.key():
+        if not username and username in __main__.users.key():
             username = input(
                 "Username already exists\nPlease enter a different username\nUsername: ")
     password, confirm_password = "-1", "0"

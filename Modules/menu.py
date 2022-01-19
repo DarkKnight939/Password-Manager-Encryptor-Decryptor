@@ -8,6 +8,8 @@ from Modules.Password_Manager.check_strength import check_strength
 from Modules.Password_Manager.view_passwords import view_passwords
 from Modules.Password_Manager.update_password import update_password
 from Modules.Password_Manager.delete_password import delete_password
+from Modules.Encryption_Decryption.encryptions import *
+from Modules.Encryption_Decryption.decryptions import *
 
 
 def menu():
@@ -18,7 +20,7 @@ def menu():
         choice = input("Invalid inout\nYour choice: ")
     clr_scr()
     if choice == "1":
-        print("\nYou have chosen to enter the Password Manager", "Enter the action you want to perform:", "1. Generate a password 🔑",
+        print("\nWelcome to Password Manager", "Enter the action you want to perform:", "1. Generate a password 🔑",
               "2. Check the strength of your password 💪", "3. Get saved passwords 👀", "4. Update a saved password 🔏", "5. Delete a saved password 🗑", sep="\n")
         choice = input("Your choice: ")
         while choice not in ['1', '2', '3', '4', '5']:
@@ -35,7 +37,37 @@ def menu():
             return delete_password()
 
     elif choice == "2":
-        pass
+        clr_scr()
+        print("Welcome to Encrypt/Decrypt Tool 🔏")
+        print("Please choose the action you want to perform:",
+              "1 to Encrypt Data 🔑", "2 to Decrypt Encrypted Data 🔐", sep="\n")
+        choice = input("Your choice: ")
+        while choice not in ["1", "2"]:
+            choice = str(
+                input("Invalid Input\nPress 1 to encrypt, 2 to decrypt:"))
+        data = str(
+            input(f"Enter data to be {'encrypted' if choice =='1' else 'decrypted'}: "))
+        print("Please choose the level of security:",
+              "1 for basic", "2 for standard", "3 for advanced", sep="\n")
+        level = input("Your choice: ")
+        while level not in ["1", "2", "3"]:
+            level = str(
+                input("Invalid Input\nPress 1 for basic, 2 for standard, 3 for advanced:"))
+        if choice == "1":
+            if level == '1':
+                return basic_encryption(data)
+            elif level == '2':
+                return standard_encryption(data)
+            elif level == '3':
+                return advanced_encryption(data)
+        elif choice == "2":
+            if level == '1':
+                return basic_decryption(data)
+            elif level == '2':
+                return standard_decryption(data)
+            elif level == '3':
+                return advanced_decryption(data)
+        return False
     elif choice == "3":
         print("Enter the action you want to perform:",
               "1. Change master password 🔏", "2. Delete account 🗑", sep="\n")

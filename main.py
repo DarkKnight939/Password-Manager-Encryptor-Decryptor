@@ -2,7 +2,6 @@ from Modules.Accounts.sign_up import sign_up
 from Modules.Accounts.user_login import user_login
 from Modules.clear_scr import clr_scr
 from Modules.menu import menu
-from Modules.Password_Manager.password_generator import password_generator
 
 
 if __name__ == '__main__':
@@ -12,11 +11,10 @@ if __name__ == '__main__':
     current_user = None
     password_manager_dict = dict()
     clr_scr()
-    print("Welcome to Password Manager🔐")
+    print("Welcome to Data Security and Storage platform🔐")
     print("Please sign up to continue\n")
     sign_up()
     while menu():
-        print("here", current_user)
         while current_user == None:
             print("\nYou have to login first")
             choice = input("1. Login\n2. Sign up\n3. Exit\nYour choice: ")
@@ -29,4 +27,4 @@ if __name__ == '__main__':
                 sign_up()
             elif choice == '3':
                 break
-    print("\nThank you for using Password Managern🔐")
+    print("\nThank you for using Data Security and Storage platform🔐")
