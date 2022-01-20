@@ -1,4 +1,7 @@
 
+from base64 import decode
+
+
 def basic_decryption(text):
     result = ""
     sh = int(input("Enter the number by which it was shifted: "))
@@ -50,35 +53,35 @@ def advanced_decryption(text):
     while i < len(text):
         if (text[i].isalpha()) == True:
             if text[i+1].isalpha() == True:
-                sublist_index = key_h.index(text[i])
-                mainlist_index = key_v.index(text[i+1])
+                sublist_index = i
+                mainlist_index = i+1
                 char = grid[mainlist_index][sublist_index]
                 decoded += char
                 i += 2
         else:
             decoded += text[i]
             i += 1
-    for char in decoded:
-        if char.isalpha() == True:
-            x = ord(char)-64
+    for i in range(len(decoded)):
+        if decoded[i].isalpha() == True:
+            x = ord(decoded[i])-64
             if x % 2 == 0:
                 a = int((x/2)+64)
             elif x % 2 != 0:
                 a = int(((x+1)/2)+13+64)
-            a = a-decoded.index(char)-1
+            a = a-decoded.index(decoded[i])-1
             if a < 65:
                 el = chr(a+26)
             else:
                 el = chr(a)
             decrypted += el
-        elif char.isdigit() == True:
-            a = int(char)-decoded.index(char)-1
+        elif decoded[i].isdigit() == True:
+            a = int(decoded[i])-decoded.index(decoded[i])-1
             while a < 0:
                 a += 9
             el = str(a)
             decrypted += el
         else:
-            decrypted += char
+            decrypted += decoded[i]
     print("The decrypted data is:", decrypted)
     return True
 
@@ -90,6 +93,5 @@ if __name__ == "__main__":
         basic_decryption(data)
     elif choice == "2":
         standard_decryption(data)
-
     elif choice == "3":
         advanced_decryption(data)

@@ -10,9 +10,14 @@ from Modules.Password_Manager.update_password import update_password
 from Modules.Password_Manager.delete_password import delete_password
 from Modules.Encryption_Decryption.encryptions import *
 from Modules.Encryption_Decryption.decryptions import *
+import datetime
+from Modules.Accounts.timeout_checker import check_timeout
 
 
 def menu():
+    if not check_timeout(__main__.last_time_active):
+        return True
+    __main__.last_time_active = datetime.datetime.now()
     print("\nChoose the action you want to perform:", "1. Enter Password Manager 🔑",
           "2. Enter Encryptor/ Decryptor 🔏", "3. Manage Account 👤", "4. Logout 👥", "5. Exit 👋", sep="\n")
     choice = input("Your choice: ")

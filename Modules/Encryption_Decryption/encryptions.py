@@ -48,20 +48,20 @@ def advanced_encryption(text):
     for i in range(len(text)):
         if text[i].isalpha() == True:
             caps = text[i].capitalize()
-            x = (ord(caps))+[i]+1
+            x = (ord(caps))+i+1
             if x > 90:
                 x = x-26
             a = x-64
             if x > 64 and x < 78:
                 el = chr((2*a)+64)
                 encoded = encoded+el
-                pass
+
             elif x > 77 and x < 91:
                 el = chr(((a-13)*2)-1+64)
                 encoded += el
-                pass
+
         elif text[i].isdigit() == True:
-            el = int(i)+i+1
+            el = int(text[i])+i+1
             while el > 9:
                 el = el-9
             encoded += str(el)

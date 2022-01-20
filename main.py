@@ -2,6 +2,7 @@ from Modules.Accounts.sign_up import sign_up
 from Modules.Accounts.user_login import user_login
 from Modules.clear_scr import clr_scr
 from Modules.menu import menu
+import datetime
 
 
 if __name__ == '__main__':
@@ -14,6 +15,7 @@ if __name__ == '__main__':
     print("Welcome to Data Security and Storage platform🔐")
     print("Please sign up to continue\n")
     sign_up()
+    last_time_active = datetime.datetime.now()
     while menu():
         while current_user == None:
             print("\nYou have to login first")
