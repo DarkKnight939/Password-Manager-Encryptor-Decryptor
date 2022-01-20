@@ -43,6 +43,7 @@ def standard_decryption(text):
 
 
 def advanced_decryption(text):
+    text = text.upper()
     decoded = ""
     decrypted = ""
     i = 0
@@ -53,8 +54,8 @@ def advanced_decryption(text):
     while i < len(text):
         if (text[i].isalpha()) == True:
             if text[i+1].isalpha() == True:
-                sublist_index = i
-                mainlist_index = i+1
+                sublist_index = key_h.index(text[i])
+                mainlist_index = key_v.index(text[i+1])
                 char = grid[mainlist_index][sublist_index]
                 decoded += char
                 i += 2
@@ -62,26 +63,27 @@ def advanced_decryption(text):
             decoded += text[i]
             i += 1
     for i in range(len(decoded)):
-        if decoded[i].isalpha() == True:
-            x = ord(decoded[i])-64
+        char = decoded[i]
+        if char.isalpha() == True:
+            x = ord(char)-64
             if x % 2 == 0:
                 a = int((x/2)+64)
             elif x % 2 != 0:
                 a = int(((x+1)/2)+13+64)
-            a = a-decoded.index(decoded[i])-1
+            a = a-i-1
             if a < 65:
                 el = chr(a+26)
             else:
                 el = chr(a)
             decrypted += el
-        elif decoded[i].isdigit() == True:
-            a = int(decoded[i])-decoded.index(decoded[i])-1
+        elif char.isdigit() == True:
+            a = int(char)-i-1
             while a < 0:
                 a += 9
             el = str(a)
             decrypted += el
         else:
-            decrypted += decoded[i]
+            decrypted += char
     print("The decrypted data is:", decrypted)
     return True
 

@@ -19,7 +19,7 @@ def menu():
         return True
     __main__.last_time_active = datetime.datetime.now()
     print("\nChoose the action you want to perform:", "1. Enter Password Manager 🔑",
-          "2. Enter Encryptor/ Decryptor 🔏", "3. Manage Account 👤", "4. Logout 👥", "5. Exit 👋", sep="\n")
+          "2. Enter Encryptor/ Decryptor Tool🔏", "3. Manage Account 👤", "4. Logout 👥", "5. Exit 👋", sep="\n")
     choice = input("Your choice: ")
     while choice not in ['1', '2', '3', '4', '5']:
         choice = input("Invalid inout\nYour choice: ")

@@ -48,40 +48,49 @@ def advanced_encryption(text):
     for i in range(len(text)):
         if text[i].isalpha() == True:
             caps = text[i].capitalize()
-            x = (ord(caps))+i+1
+            x = (ord(caps))+(i)+1
             if x > 90:
                 x = x-26
             a = x-64
             if x > 64 and x < 78:
                 el = chr((2*a)+64)
                 encoded = encoded+el
-
+                pass
             elif x > 77 and x < 91:
                 el = chr(((a-13)*2)-1+64)
                 encoded += el
-
+                pass
         elif text[i].isdigit() == True:
-            el = int(text[i])+i+1
+            el = int(text[i])+(i)+1
             while el > 9:
                 el = el-9
             encoded += str(el)
         else:
-            encoded += i
+            encoded += text[i]
     key_h = str(input(
-        "Enter a 6-character key for security purpose:\n(For future reference, note as horizontal key)\n")).upper()
-    while len(key_h) != 6:
+        "Enter a 6-letter key for security purpose (For future reference, note as horizontal key): ")).upper()
+    while not key_h.isalpha() or len(key_h) != 6:
+        if key_h.isalpha() == False:
+            print("Key can't have any other character other than alphabets")
+        if len(key_h) != 6:
+            print("Key must be 6 letters long")
         key_h = str(input(
-            "Key must be 6 characters long\nEnter a 6-character key for security purpose:\n(For future reference, note as horizontal key)\n")).upper()
+            "Enter a 6-letter key for security purpose: ")).upper()
+
     key_v = str(input(
-        "Enter a 6-character key for security purpose:\n(For future reference, note as vertical key)\n")).upper()
-    while len(key_v) != 6:
+        "Enter a 6-letter key for security purpose (For future reference, note as vertical key): ")).upper()
+    while not key_v.isalpha() or len(key_v) != 6:
+        if key_v.isalpha() == False:
+            print("Key can't have any other character other than alphabets")
+        if len(key_v) != 6:
+            print("Key must be 6 letters long")
         key_v = str(input(
-            "Key must be 6 characters long\nEnter a 6-character key for security purpose: \n(For future reference, note as vertical key)\n"))
+            "Enter a 6-letter key for security purpose: ")).upper()
 
     grid = [['A', 'B', 'C', 'D', 'E', 'F'], ['G', 'H', 'I', 'J', 'K', 'L'], ['M', 'N', 'O', 'P', 'Q', 'R'], [
         'S', 'T', 'U', 'V', 'W', 'X'], ['Y', 'Z', '0', '1', '2', '3'], ['4', '5', '6', '7', '8', '9']]
-    for char in encoded:
-        i = encoded.index(char)
+    for i in range(len(encoded)):
+        char = encoded[i]
         for j in range(len(grid)):
             a = list(grid[j])
             if char in a:
