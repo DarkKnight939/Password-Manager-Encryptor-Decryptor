@@ -88,12 +88,3 @@ def advanced_decryption(text):
     return True
 
 
-if __name__ == "__main__":
-    choice = input("Enter 1 for basic, 2 for standard and 3 for advanced: ")
-    data = input("Enter the data to be decrypted: ")
-    if choice == "1":
-        basic_decryption(data)
-    elif choice == "2":
-        standard_decryption(data)
-    elif choice == "3":
-        advanced_decryption(data)

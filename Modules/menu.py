@@ -1,5 +1,5 @@
 from Modules.Accounts.change_password import change_password
-from Modules.Accounts.delete_accunt import delete_account
+from Modules.Accounts.delete_account import delete_account
 from Modules.Accounts.logout import logout
 from Modules.clear_scr import clr_scr
 import __main__

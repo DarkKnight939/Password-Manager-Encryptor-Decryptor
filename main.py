@@ -1,3 +1,5 @@
+# Team Member: Aanchal Saraf, Shirshendu Sen Gupta and Shivansh Shalabh
+# Project Name: Data Security and Storage Platform
 from Modules.Accounts.sign_up import sign_up
 from Modules.Accounts.user_login import user_login
 from Modules.clear_scr import clr_scr
@@ -12,7 +14,7 @@ if __name__ == '__main__':
     current_user = None
     password_manager_dict = dict()
     clr_scr()
-    print("Welcome to Data Security and Storage platform🔐")
+    print("Welcome to Data Security and Storage Platform🔐")
     print("Please sign up to continue\n")
     sign_up()
     last_time_active = datetime.datetime.now()
@@ -29,4 +31,4 @@ if __name__ == '__main__':
                 sign_up()
             elif choice == '3':
                 break
-    print("\nThank you for using Data Security and Storage platform🔐")
+    print("\nThank you for using Data Security and Storage Platform🔐")
